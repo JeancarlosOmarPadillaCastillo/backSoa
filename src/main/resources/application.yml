@@ -1,0 +1,41 @@
+#----------------------------------------------------------------------------------------------------------------------#
+
+# Conexion a la Base de Datos en local (PostgreSQL)
+
+server:
+  port: 8090
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/soa
+    username: postgres
+    password: 20102003
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 20
+  application:
+    name: address-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/PRS
+
+
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG
+
+
+#----------------------------------------------------------------------------------------------------------------------#
+
+
+# jwt
+jwt:
+  secret : secretsecretsecretsecretsecretsecretsecretsecretsecret
+  expiration: 3600
